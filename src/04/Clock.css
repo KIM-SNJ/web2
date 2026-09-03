@@ -1,0 +1,93 @@
+/* Clock.css */
+
+/* 1. 웹 페이지 전체 배경 설정 (그리드 패턴 & 다크 모드) */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex; /* 화면 중앙 정렬을 위한 Flexbox */
+    align-items: center;
+    justify-content: center;
+    background-color: #05050a; /* 아주 깊은 어두운 남색 */
+    /* 디지털 사이버틱한 격자무늬(Grid) 배경 패턴 생성 */
+    background-image:
+            linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px; /* 격자무늬 크기 */
+}
+
+/* 2. 시계 컨테이너: 부드러운 그라데이션과 입체감 */
+.clock-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1e1e2f, #151520);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 24px;
+    padding: 60px 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(0, 212, 255, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    backdrop-filter: blur(10px); /* 배경이 살짝 비치는 유리 질감 효과 */
+}
+
+/* 3. 시계 컨테이너 내부 은은하게 회전하는 빛 효과 */
+.clock-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 60%);
+    animation: pulseGlow 10s linear infinite;
+    z-index: 0;
+}
+
+/* 텍스트가 배경 빛 위로 올라오도록 설정 */
+.clock-container h1,
+.clock-container h2 {
+    position: relative;
+    z-index: 1;
+}
+
+/* 4. 학과명: 사이버틱한 서브 타이틀 */
+.clock-container h1 {
+    color: #8b92a5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* 5. 시간 텍스트: 네온사인 및 디지털 전광판 효과 */
+.clock-container h2 {
+    color: #00d4ff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 25px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    box-shadow:
+            0 0 20px rgba(0, 212, 255, 0.2),
+            inset 0 0 15px rgba(0, 212, 255, 0.15);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+}
+
+/* 배경 빛 회전 애니메이션 */
+@keyframes pulseGlow {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
