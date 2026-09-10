@@ -1,0 +1,23 @@
+/* WelcomeList.css */
+
+/* Welcome 컴포넌트(h1 태그) 스타일링 */
+.welcome-list h1 {
+    width: 50%;             /* 너비를 문서의 50%로 설정 */
+    margin: 0 auto;         /* 화면 가운데 정렬 */
+    text-align: center;     /* 텍스트를 가운데 정렬 */
+    padding: 20px 0;        /* 시각적으로 보기 좋게 안쪽 여백 추가 */
+    border-radius: 8px;     /* 테두리를 둥글게 (선택 사항) */
+}
+
+/* 각각의 Welcome 컴포넌트에 서로 다른 배경색 지정 */
+.welcome-list h1:nth-of-type(1) {
+    background-color: #ffb3ba; /* 파스텔 빨간색 */
+}
+
+.welcome-list h1:nth-of-type(2) {
+    background-color: #baffc9; /* 파스텔 초록색 */
+}
+
+.welcome-list h1:nth-of-type(3) {
+    background-color: #bae1ff; /* 파스텔 파란색 */
+}
