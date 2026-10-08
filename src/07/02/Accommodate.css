@@ -1,0 +1,99 @@
+/* Accommodate.css */
+.accommodate-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #f1f2f6;
+}
+
+/* 정원이 다 찼을 때의 컨테이너 상태 */
+.accommodate-container.full {
+    background: #fff5f5;
+    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.15);
+    border: 1px solid #ff4757;
+}
+
+.status-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #2f3542;
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+.accommodate-container.full .status-text {
+    color: #ff4757;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* 입장 버튼 */
+.btn-enter {
+    background: #1e90ff;
+    color: white;
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+}
+
+.btn-enter:hover:not(:disabled) {
+    background: #3742fa;
+}
+
+.btn-enter:disabled {
+    background: #a4b0be;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* 퇴장 버튼 */
+.btn-leave {
+    background: #f1f2f6;
+    color: #57606f;
+}
+
+.btn-leave:hover {
+    background: #dfe4ea;
+}
+
+/* 경고 텍스트 애니메이션 */
+.warning-text {
+    color: #ff4757;
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0;
+    padding: 14px;
+    background: rgba(255, 71, 87, 0.1);
+    border-radius: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
