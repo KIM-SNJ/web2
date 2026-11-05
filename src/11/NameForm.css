@@ -1,0 +1,89 @@
+/* 전체 폼 컨테이너 - 시크한 다크 모드 카드 */
+.name-form {
+    max-width: 380px;
+    margin: 40px auto;
+    padding: 32px 28px;
+    background: #18181b;
+    border-radius: 24px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid #27272a;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.name-form:hover {
+    transform: translateY(-4px);
+    border-color: #3f3f46;
+}
+
+/* 라벨 스타일 */
+.name-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e4e4e7;
+    letter-spacing: -0.01em;
+}
+
+/* 텍스트 입력창 스타일 */
+.name-form input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fafafa;
+    background-color: #27272a;
+    border: 2px solid #3f3f46;
+    border-radius: 14px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.name-form input[type="text"]::placeholder {
+    color: #71717a;
+}
+
+.name-form input[type="text"]:hover {
+    border-color: #52525b;
+    background-color: #2e2e33;
+}
+
+/* 포커스 시 네온 인디고 글로우 효과 */
+.name-form input[type="text"]:focus {
+    background-color: #18181b;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.22);
+}
+
+/* 제출 버튼 - 인디고/바이올렛 그라데이션 */
+.name-form button[type="submit"] {
+    padding: 15px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.02em;
+}
+
+.name-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(168, 85, 247, 0.5);
+    filter: brightness(1.06);
+}
+
+.name-form button[type="submit"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}

@@ -1,0 +1,199 @@
+/* 전체 배경 및 레이아웃 */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 20% 20%, #1a1c2e 0%, #0b0c10 100%);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.6s ease;
+}
+
+/* 배경 네온 오로라 효과 */
+.auth-wrapper::before,
+.auth-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.45;
+    z-index: 0;
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 로그아웃 상태일 때 오로라 (블루 & 바이올렛) */
+.auth-wrapper.logged-out::before {
+    background: #6366f1;
+    top: -80px;
+    left: -80px;
+}
+.auth-wrapper.logged-out::after {
+    background: #a855f7;
+    bottom: -80px;
+    right: -80px;
+}
+
+/* 로그인 상태일 때 오로라 (에메랄드 & 시안) */
+.auth-wrapper.logged-in::before {
+    background: #10b981;
+    top: 10%;
+    left: 60%;
+}
+.auth-wrapper.logged-in::after {
+    background: #06b6d4;
+    bottom: 10%;
+    right: 60%;
+}
+
+/* 글래스모피즘 메인 카드 */
+.auth-card {
+    position: relative;
+    z-index: 1;
+    width: 380px;
+    padding: 48px 36px;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: #ffffff;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.75),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* 상단 상태 표시 뱃지 */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.logged-in .status-dot {
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: pulse-green 1.8s infinite;
+}
+
+.logged-out .status-dot {
+    background: #f43f5e;
+    box-shadow: 0 0 12px #f43f5e;
+}
+
+/* Greeting 컴포넌트 텍스트 영역 스타일링 */
+.greeting-box {
+    margin-bottom: 36px;
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.4;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 공통 버튼 스타일 */
+.neon-btn {
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 버튼 위 빛 반사(Shine) 애니메이션 */
+.neon-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.neon-btn:hover::before {
+    left: 100%;
+}
+
+.neon-btn:active {
+    transform: scale(0.97);
+}
+
+/* 로그인 버튼 (네온 인디고 & 퍼플 그라데이션) */
+.login-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.55);
+}
+
+.login-btn:hover {
+    box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.8),
+    0 0 20px rgba(236, 72, 153, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 로그아웃 버튼 (시크한 다크 로즈 & 레드 네온 테두리) */
+.logout-btn {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+    box-shadow: 0 10px 25px -5px rgba(244, 63, 94, 0.45);
+}
+
+.logout-btn:hover {
+    box-shadow: 0 15px 35px -5px rgba(244, 63, 94, 0.75),
+    0 0 20px rgba(225, 29, 72, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 상태 표시 펄스 애니메이션 */
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}

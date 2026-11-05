@@ -24,14 +24,25 @@ import reportWebVitals from './reportWebVitals';
 // import ConfirmButton from "./08/ConfirmButton";
 // import ConfirmButton2 from "./08/ConfirmButton2";
 // import MessageApp from "./08/MessageApp";
-import MessageSender from "./08/MessageSender";
+// import MessageSender from "./08/MessageSender";
+// import Greeting from "./09/ex1/Greeting";
+// import LogInControl from "./09/ex2/LogInControl";
+// import LogInControl2 from "./09/ex3/LogInControl2";
+// import MainPage from "./09/ex4/MainPage";
+// import LandingPage from "./09/finalEX/LandingPage";
+// import MapTest from "./10/MapTest";
+// import AttendanceBook from "./10/AttendanceBook";
+// import AttendanceCardBook from "./10/AttendanceCardBook";
+// import NameForm from "./11/NameForm";
+// import FruitSelect from "./11/FruitSelect";
+import Reservation from "./11/Reservation";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 setInterval(() => {
         root.render(
             <React.StrictMode>
-                <MessageSender/>
+                <Reservation/>
             </React.StrictMode>
         );
     }, 1000

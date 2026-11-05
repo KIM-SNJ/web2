@@ -1,0 +1,217 @@
+/* 전체 컨테이너 및 배경 */
+.attendance-container {
+    max-width: 1080px;
+    margin: 40px auto;
+    padding: 48px 32px;
+    background: linear-gradient(145deg, #f8fafc 0%, #eef2ff 100%);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+/* 상단 헤더 스타일 */
+.attendance-header {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.attendance-header .subtitle {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+
+.attendance-header .title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+.attendance-header .count {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.attendance-header .count strong {
+    color: #4f46e5;
+    font-weight: 700;
+}
+
+/* 반응형 그리드 레이아웃 (3열 -> 2열 -> 1열 자동 조절) */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 28px;
+}
+
+/* 개별 학생 카드 */
+.student-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 24px;
+    padding: 32px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05),
+    0 4px 10px -6px rgba(15, 23, 42, 0.03);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* 카드 상단 포인트 컬러 바 */
+.student-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 카드 호버 효과 */
+.student-card:hover {
+    transform: translateY(-10px);
+    background: #ffffff;
+    box-shadow: 0 24px 40px -12px rgba(99, 102, 241, 0.18);
+    border-color: rgba(99, 102, 241, 0.25);
+}
+
+.student-card:hover::before {
+    opacity: 1;
+}
+
+/* 우측 상단 출석 상태 뱃지 */
+.status-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #10b981;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #10b981;
+}
+
+/* 프로필 이미지 래퍼 (그라데이션 테두리 효과) */
+.avatar-wrapper {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.student-card:hover .avatar-wrapper {
+    transform: scale(1.06) rotate(2deg);
+    box-shadow: 0 14px 28px rgba(236, 72, 153, 0.28);
+}
+
+/* 프로필 이미지 */
+.student-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center; /* 인물 사진 얼굴이 잘리지 않도록 상단 기준 정렬 */
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    background-color: #f1f5f9;
+    display: block;
+}
+
+/* 학생 이름 및 태그 정보 */
+.student-info {
+    width: 100%;
+}
+
+.student-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.01em;
+}
+
+.student-tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* 학년 뱃지 */
+.grade-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #4f46e5;
+    background-color: #eef2ff;
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+/* 전공 뱃지 */
+.major-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    background-color: #f1f5f9;
+    padding: 5px 12px;
+    border-radius: 8px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.student-card:hover .major-tag {
+    background-color: #fdf2f8;
+    color: #db2777;
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 640px) {
+    .attendance-container {
+        margin: 16px;
+        padding: 32px 20px;
+    }
+
+    .attendance-header .title {
+        font-size: 1.75rem;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
